@@ -1,0 +1,33 @@
+@import 'variables';
+@import '_Navbar';
+@import '_Home';
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  margin: 0
+}
+
+body {
+  background-color: $color-mediumgreen;
+  // color: rgb(38, 36, 36);
+  // margin: 0;
+  // height: 100vh;
+  // font-optical-sizing: auto;
+  // font-style: normal;
+  // font-variation-settings: "wdth" 100;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+* {
+  margin: 0
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+

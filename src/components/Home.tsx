@@ -43,7 +43,7 @@ const Home = () => {
     imageData.append('file', file);
     imageData.append(
       'upload_preset',
-      process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
+      process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET
     );
     try {
       const cloudinaryResponse = await API.POST(

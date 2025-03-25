@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { API } from '../../src/lib/api';
-import { AUTH } from '../../src/lib/auth';
+import { API } from '../lib/api';
+import { AUTH } from '../lib/auth';
 
 import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 
 import styled from 'styled-components';
-import { RegisterContainer } from './Home.tsx';
+import { RegisterContainer } from './Home';
 import Theme from './Theme.js';
 
 const initialFormData = {
@@ -46,7 +46,6 @@ const Login = () => {
         <LoginContainer
           $login
           className='register-container'
-          maxWidth='lg'
           sx={{
             display: 'flex',
             justifyContent: 'center',

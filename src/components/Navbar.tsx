@@ -4,6 +4,7 @@ import DeLaSoilLogo from '../media/de-la-soil-logo1.png';
 import { useNavigate, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+
 const Navbar = () => {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   const navigate = useNavigate()
@@ -24,6 +25,8 @@ const Navbar = () => {
             id='menu-toggle'
             type='checkbox'
             checked={isNavbarOpen}
+            onChange={(e) => setIsNavbarOpen(e.target.checked)}
+
           />
           <div
             onClick={toggleNavbar}
@@ -34,7 +37,7 @@ const Navbar = () => {
         {/* <Title>Recipes From <span>Earth</span></Title> */}
           <Logo
             onClick={() => handleOnClick()}
-            src={DeLaSoilLogo}
+            src={DeLaSoilLogo.src}
             alt='de-la-soil-logo'
             style={{ width: '80px' }}></Logo>
       </nav>

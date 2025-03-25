@@ -6,15 +6,15 @@ const getHeaders = () => ({
 });
 
 const ENDPOINTS = {
-  register: `${process.env.REACT_APP_BASE_URL}/api/auth/register/`,
-  login: `${process.env.REACT_APP_BASE_URL}/api/auth/login/`,
-  allProducts: `${process.env.REACT_APP_BASE_URL}/api/products/`,
-  createUserCart: `${process.env.REACT_APP_BASE_URL}/api/cart/`,
-  cloudinary: `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}/image/upload`,
+  register: `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/register/`,
+  login: `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/login/`,
+  allProducts: `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/`,
+  createUserCart: `${process.env.NEXT_PUBLIC_BASE_URL}/api/cart/`,
+  cloudinary: `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`,
   // search: (query) => `/api/books/search?q=${query}`,
   // updateUserCart: (cartId) => `/api/cart/${cartId}/`,
-  userCart: (cartId) => `${process.env.REACT_APP_BASE_URL}/api/cart/${cartId}/`,
-  // deleteUserCart: (cartId) => `${process.env.REACT_APP_BASE_URL}/api/cart/${cartId}/`
+  userCart: (cartId) => `${process.env.NEXT_PUBLIC_BASE_URL}/api/cart/${cartId}/`,
+  // deleteUserCart: (cartId) => `${process.env.NEXT_PUBLIC_BASE_URL}/api/cart/${cartId}/`
 };
 
 const GET = (endpoint, headers) =>

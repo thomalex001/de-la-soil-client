@@ -1,7 +1,11 @@
+import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import styled, { css } from 'styled-components';
+import Theme from './Theme';
+
 import {
   TextField,
   Button,
@@ -11,12 +15,10 @@ import {
   IconButton
 } from '@mui/material';
 
-import { API } from '../../src/lib/api';
-import { AUTH } from '../../src/lib/auth';
+import { API } from '../lib/api';
+import { AUTH } from '../lib/auth';
 
 const Home = () => {
-
-
   const navigate = useNavigate();
   const [formFields, setFormFields] = useState({
     email: '',
@@ -77,19 +79,11 @@ const Home = () => {
     }
   };
 
-
-
-
   return (
-    <fragment>
+    <>
+    <Theme>
       <div className='home-container'>
-        <h1>
-          De La <span>Soil</span>
-        </h1>
-        <h2>
-          Recipes From <span>Earth</span>
-        </h2>
-        <div className='register-container'>
+        <RegisterContainer>
           <Container
             maxWidth='lg'
             sx={{
@@ -97,8 +91,8 @@ const Home = () => {
               justifyContent: 'center',
               flexDirection: 'column',
               alignItems: 'center',
-              pt: '50px'
             }}>
+            <h1>Register a new account</h1>
             <form onSubmit={handleCreateUser}>
               <div>
                 <TextField
@@ -201,7 +195,6 @@ const Home = () => {
                 fullWidth
                 sx={{ mt: 2 }}
                 variant='contained'
-                // color="success"
                 type='submit'>
                 Create Account
               </Button>
@@ -217,10 +210,43 @@ const Home = () => {
               </Link>
             </Box>
           </Container>
-        </div>
+        </RegisterContainer>
       </div>
-    </fragment>
+      </Theme>
+    </>
   );
 };
 
 export default Home;
+
+export const RegisterContainer = styled.div<{ $login?: boolean }>`
+  padding: ${(props) => (props.$login? '2em 0' : '2em 0')};
+
+  width: 100vw;
+  /* padding: 0 2em 3em; */
+  background-color: ${(props) => props.theme.colors.verylightgreen};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+
+
+
+
+
+
+
+
+
+
+
+// const ImgButton = styled.button<{ $hasImage: boolean }>`
+//   ${({ $hasImage }) => $hasImage && css`
+//     display: none;
+//   `}
+// `;
+
+{
+  /* <YearsOld $isHidden={isAgeOverflowing}>years old</YearsOld> */
+}

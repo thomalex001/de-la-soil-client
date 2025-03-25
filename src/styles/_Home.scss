@@ -6,20 +6,15 @@
 }
 
 h1 {
-  font-family: "Rampart One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
   color: $color-darkgreen;
-  font-size: 50px;
+  font-size: 20px;
+  span {
+    border-bottom: 1px solid $color-darkgreen;
+  }
 }
 
-h2 {
-  font-family: "Rampart One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 16px;
-  span {
-    border-bottom: 2px solid $color-darkgreen;
-  }
-
+h1 {
+  padding-bottom: 2em;
+  font-size: 20px;
+  text-align: center;
 }

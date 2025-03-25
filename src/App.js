@@ -1,13 +1,23 @@
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import { BrowserRouter } from 'react-router-dom';
+import Navbar from './components/Navbar.tsx';
+import Home from './components/Home.tsx';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './components/Login';
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <Navbar />
-      <Home />
-    </BrowserRouter>
+      <Routes>
+      <Route
+          path='/'
+          element={<Home/>}
+        />
+      <Route
+          path='/login'
+          element={<Login/>}
+        />
+      </Routes>
+    </Router>
   );
 }
 

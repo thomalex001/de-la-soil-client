@@ -1,5 +1,7 @@
+'use client'
+
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { API } from '../lib/api';
 import { AUTH } from '../lib/auth';
 
@@ -9,8 +11,10 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 
 import styled from 'styled-components';
-import { RegisterContainer } from './Home';
+import { RegisterContainer } from './Register';
 import Theme from './Theme.js';
+import Link from 'next/link';
+
 
 const initialFormData = {
   email: '',
@@ -18,7 +22,7 @@ const initialFormData = {
 };
 
 const Login = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [formFields, setFormFields] = useState(initialFormData);
   const [error, setError] = useState(false);
 
@@ -28,7 +32,7 @@ const Login = () => {
       .then(({ data: { token, cartId } }) => {
         AUTH.setToken(token);
         console.log(cartId);
-        navigate('/home');
+        router.push('/home');
       })
       .catch(({ response }) => {
         console.error(response);
@@ -95,7 +99,19 @@ const Login = () => {
               Login
             </Button>
           </Box>
+          <Box sx={{ mt: 2, display: 'flex', justifyContent: 'center' }}>
+              <p style={{ margin: 0, paddingRight: '5px' }}>
+                Don't have an account?
+              </p>
+              <Link
+                style={{ color: 'primary' }}
+                href='/'
+                className='links'>
+                Register
+              </Link>
+            </Box>
         </LoginContainer>
+
       </Theme>
     </>
   );

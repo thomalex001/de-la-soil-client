@@ -1,72 +1,83 @@
+'use client';
+
 import React from 'react';
 import { useState } from 'react';
 import DeLaSoilLogo from '../media/de-la-soil-logo1.png';
-import { useNavigate, Link } from 'react-router-dom';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import styled from 'styled-components';
-
 
 const Navbar = () => {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
-  const navigate = useNavigate()
+  const router = useRouter();
+
   const handleOnClick = () => {
     setIsNavbarOpen(false);
-    navigate('/')
- }
+    router.push('/');
+  };
   const toggleNavbar = () => {
-    setIsNavbarOpen(!isNavbarOpen);
+    setIsNavbarOpen((prev) => !prev);
   };
 
   return (
     <>
-      <nav
-        className='navbar'
->
-          <input
-            id='menu-toggle'
-            type='checkbox'
-            checked={isNavbarOpen}
-            onChange={(e) => setIsNavbarOpen(e.target.checked)}
-
-          />
-          <div
-            onClick={toggleNavbar}
-            className='menu-button-container'
-            >
-            <div className='menu-button'></div>
-          </div>
+      <nav className='navbar'>
+        <input
+          id='menu-toggle'
+          type='checkbox'
+          checked={isNavbarOpen}
+          onChange={(e) => setIsNavbarOpen(e.target.checked)}
+        />
+        <div
+          onClick={toggleNavbar}
+          className='menu-button-container'>
+          <div className='menu-button'></div>
+        </div>
         {/* <Title>Recipes From <span>Earth</span></Title> */}
-          <Logo
-            onClick={() => handleOnClick()}
-            src={DeLaSoilLogo.src}
-            alt='de-la-soil-logo'
-            style={{ width: '80px' }}></Logo>
+        <Logo
+          onClick={() => handleOnClick()}
+          src={DeLaSoilLogo.src}
+          alt='de-la-soil-logo'
+          style={{ width: '80px', cursor: 'pointer' }}></Logo>
       </nav>
       <aside className={isNavbarOpen ? 'side-bar is-active' : 'side-bar'}>
         <ul>
-          <Link
-            onClick={toggleNavbar}
-            className='links'
-            to='/'>
-            Home
-          </Link>
-          <Link
-            onClick={toggleNavbar}
-            className='links'
-            to='/login'>
-            Login
-          </Link>
-          <Link
-            onClick={toggleNavbar}
-            className='links'
-            to='/recipes'>
-            Recipes
-          </Link>
-          <Link
-            onClick={toggleNavbar}
-            className='links'
-            to='/about'>
-            About
-          </Link>
+          <li>
+            {' '}
+            <Link
+              onClick={toggleNavbar}
+              className='links'
+              href='/'>
+              Home
+            </Link>
+          </li>
+          <li>
+            {' '}
+            <Link
+              onClick={toggleNavbar}
+              className='links'
+              href='/login'>
+              Login
+            </Link>
+          </li>
+          <li>
+            {' '}
+            <Link
+              onClick={toggleNavbar}
+              className='links'
+              href='/recipes'>
+              Recipes
+            </Link>
+          </li>
+          <li>
+            {' '}
+            <Link
+              onClick={toggleNavbar}
+              className='links'
+              href='/about'>
+              About
+            </Link>
+          </li>
         </ul>
       </aside>
     </>
@@ -74,7 +85,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
 
 const Logo = styled.img`
   position: absolute;
@@ -84,4 +94,3 @@ const Logo = styled.img`
   cursor: pointer;
   
 `;
-

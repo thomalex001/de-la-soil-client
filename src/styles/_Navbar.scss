@@ -74,18 +74,24 @@
   z-index: 2;
 
   ul {
-    list-style-type: none; 
+
     display: flex;
     flex-direction: column;
     padding: 0;
 
-    .links {
+    
+    li {
+      
       padding: 1em 0;
       text-align: center;
       border-bottom: 1px solid $color-mediumgreen;
-      color: $color-darkgreen;
       font-size: 1.4em;
       text-decoration: none;
+    }
+  
+    .links {
+      text-decoration: none; 
+      color: $color-darkgreen;
     }
   }
 
